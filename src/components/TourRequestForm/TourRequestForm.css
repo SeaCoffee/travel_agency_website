@@ -1,0 +1,153 @@
+.form-container {
+    width: 97%;
+    background-color: #E3F6FF;
+    padding: 32px;
+    border-radius: 5px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center; /* Добавлено для вертикального выравнивания */
+    max-width: calc(100% - 24px); /* Уменьшаем максимальную ширину, чтобы добавить отступы с обеих сторон */
+    margin: 0 auto;
+}
+
+.flex-item {
+    flex: 1;
+    min-width: 180px; /* Минимальная ширина элемента, может быть изменена */
+    box-sizing: border-box; /* Размеры включают padding и border */
+}
+
+.text-field, .select-field, .submit-button {
+    height: 56px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 0; /* Отступы отключены */
+}
+
+/* Стилизация кнопки отправки */
+.submit-button {
+    margin: 0 auto;
+    flex-grow: 0; /* Кнопка не будет расти */
+}
+
+/* Стили для полей с датами */
+.date-picker {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Ширина соответствует родительскому элементу .date-fields */
+    margin-right: 0;
+    height: 56px;
+}
+
+
+/* Убедитесь, что отступы для полей с датами корректны */
+.date-picker:first-child {
+    margin-right: 8px; /* Добавляем отступ справа только если элементы не имеют border между собой */
+}
+
+.date-picker:last-child {
+    margin-right: 0; /* Убираем отступ справа для последнего поля */
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .flex-item, .date-picker {
+        min-width: 100%; /* На маленьких экранах элементы занимают всю ширину ряда */
+        margin-right: 0; /* Убираем правый отступ */
+    }
+}
+
+/* Стили для элементов DatePicker */
+.date-picker .react-datepicker-wrapper,
+.date-picker .react-datepicker__input-container,
+.date-picker input {
+    width: 100%; /* Заставляет элементы занимать всю ширину родительского блока */
+    height: 56px; /* Высота аналогичная другим полям */
+    padding: 8px 12px; /* Отступы как у других текстовых полей */
+    font-size: 14px; /* Размер шрифта как у других текстовых полей */
+    border: 1px solid #ced4da; /* Рамка как у других текстовых полей */
+    border-radius: 4px; /* Скругление как у других текстовых полей */
+    background-color: #fff; /* Фон как у других текстовых полей */
+}
+
+/* Если DatePicker использует классы, которые мы можем переопределить */
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+    width: 100%;
+}
+
+/* Плейсхолдер для полей ввода DatePicker */
+.date-picker input::placeholder {
+    color: #495057; /* Цвет плейсхолдера, можно настроить */
+}
+
+/* Стили для исправления любых других специфических стилей DatePicker */
+.react-datepicker__input-container input {
+    height: 56px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    /* Добавьте любые другие стили, которые необходимы для вашего DatePicker */
+}
+
+.react-datepicker__header {
+    background-color: #f0f0f0;
+}
+
+/* Убедитесь, что элементы в ряду с датами выровнены по правому краю */
+.date-fields {
+    flex: 1; /* Это позволяет элементу расти и заполнять доступное пространство */
+    width: calc(50% - 8px); /* Вычисляем ширину, учитывая gap в .flex-row */
+    max-width: calc(50% - 8px); /* Максимальная ширина для предотвращения переполнения */
+    box-sizing: border-box; /* Границы и padding включаются в ширину элемента */
+    margin-right: 0; /* Убираем отступ справа для всех элементов, кроме последнего */
+    display: flex; /* Делаем .date-fields flex контейнером */
+    justify-content: stretch; /* Растягиваем дочерние элементы на всю доступную ширину */
+}
+
+.flex-item.MuiBox-root {
+    padding: 0; /* Убирает внутренние отступы */
+    margin: 0; /* Убирает внешние отступы */
+}
+.date-fields .MuiBox-root {
+    padding: 0;
+    margin: 0;
+}
+.flex-item.date-fields .MuiBox-root {
+    padding: 0;
+    margin: 0;
+}
+
+/* Стили для поля "Дополнительные пожелания" */
+.second-row-fields .additional-requests-field {
+    flex-grow: 2;
+    min-width: 0;
+    width: 100%;
+}
+
+.first-row-fields, .second-row-fields {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px; /* промежуток между элементами */
+    width: 80%; /* ширина рядов относительно .form-container */
+    margin: 0 auto; /* центрирование рядов */
+}
+
+
+

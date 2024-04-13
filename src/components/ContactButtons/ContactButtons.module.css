@@ -1,0 +1,82 @@
+.contactContainer {
+    background-color: #E3F6FF;
+    padding: 10px 5%; /* Измененный отступ для занятия 90% страницы */
+    border-radius: 5px;
+    margin: 20px auto 40px;
+    width: 97%; /* Установленная ширина в 90% */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.iconsContainer {
+    margin-top: 16px; /* Добавлен отступ сверху к иконкам с текстом */
+    margin-bottom: 32px; /* Увеличенный отступ снизу */
+}
+
+.numbersTitle {
+    margin-bottom: 8px; /* Отступ между текстом "додаткові номери" и номерами */
+    font-weight: bold; /* Стилизация текста */
+    font-size: 16px; /* Размер текста */
+}
+
+
+.numbersContainer {
+    margin-bottom: 32px; /* Отступ между блоком номеров и замечанием */
+}
+
+.contactLink {
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.contactImage {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 4px;
+
+}
+
+.additionalNumbers {
+    background-color: #9DF1DF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    list-style-type: none;
+    width: fit-content; /* Ширина в соответствии с содержимым */
+    margin-bottom: 10px;
+}
+
+.emergencyNotice {
+    background-color: #9DF1DF;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 32px; /* Добавленный отступ сверху */
+    font-style: italic; /* Стилизация текста */
+    opacity: 0.8; /* Немного прозрачности для текста */
+}
+
+
+.iconsWithText {
+    margin-bottom: 32px; /* Увеличенный отступ снизу */
+}
+
+.additionalNumbersList {
+    margin-top: 16px;
+}
+
+
+.additionalNumbers:not(:last-child) {
+    margin-bottom: 10px; /* Увеличенный отступ между номерами */
+}
+
+
+ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+.contactText {
+    color: #565656; /* Замените это на желаемый цвет текста */
+}
+
+
