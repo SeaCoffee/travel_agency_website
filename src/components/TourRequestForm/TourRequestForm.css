@@ -4,11 +4,11 @@
     padding: 32px;
     border-radius: 5px;
     margin: 50px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .flex-row {
@@ -42,6 +42,7 @@
 .submit-button {
     margin: 0 auto;
     flex-grow: 0; /* Кнопка не будет расти */
+    background-color: #9DF1DF;
 }
 
 /* Стили для полей с датами */
@@ -147,6 +148,11 @@
     gap: 16px; /* промежуток между элементами */
     width: 80%; /* ширина рядов относительно .form-container */
     margin: 0 auto; /* центрирование рядов */
+}
+/* Стили для плейсхолдера поля ввода DatePicker */
+.date-picker input::placeholder {
+    font-size: 14px; /* Задаем размер шрифта плейсхолдера, как у других полей */
+    color: #495057; /* Цвет плейсхолдера, можно настроить */
 }
 
 

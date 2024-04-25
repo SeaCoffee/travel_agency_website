@@ -2,9 +2,9 @@
     background-color: #E3F6FF;
     padding: 10px 5%; /* Измененный отступ для занятия 90% страницы */
     border-radius: 5px;
-    margin: 20px auto 40px;
+    margin: 45px auto 40px;
     width: 97%; /* Установленная ширина в 90% */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .iconsContainer {
@@ -15,7 +15,7 @@
 .numbersTitle {
     margin-bottom: 8px; /* Отступ между текстом "додаткові номери" и номерами */
     font-weight: bold; /* Стилизация текста */
-    font-size: 16px; /* Размер текста */
+    font-size: 18px; /* Размер текста */
 }
 
 
@@ -43,6 +43,8 @@
     list-style-type: none;
     width: fit-content; /* Ширина в соответствии с содержимым */
     margin-bottom: 10px;
+    font-style: italic; /* Стилизация текста */
+    opacity: 0.8; /* Немного прозрачности для текста */
 }
 
 .emergencyNotice {
@@ -77,6 +79,40 @@ ul {
 
 .contactText {
     color: #565656; /* Замените это на желаемый цвет текста */
+}
+
+.numbersTitle {
+    margin: 15px 15px 15px 0; /* Верхний, правый, нижний и левый отступы соответственно */
+}
+
+.numberWithMessengers {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Отступ между строками с номерами */
+}
+
+.additionalNumbers {
+    margin-right: 15px; /* Отступ между номером и блоком мессенджеров */
+}
+
+.messengerLinks {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между элементами внутри блока мессенджеров */
+}
+
+.contactLink {
+    display: flex;
+    align-items: center;
+    /* Остальные стили для ссылок */
+}
+
+.contactImage {
+    margin-left: 5px; /* Отступ слева от текста до иконки */
+}
+
+.emergencyNotice {
+    margin-top: 20px; /* Отступ сверху для блока с уведомлением */
 }
 
 

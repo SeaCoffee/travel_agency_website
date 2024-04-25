@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Box, Button, Grid, MenuItem, TextField } from '@mui/material';
+import { Box, Button, Typography, MenuItem, TextField } from '@mui/material';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import countries from '../countries/countries';
@@ -36,14 +36,14 @@ export const TourRequestForm = () => {
 
     return (
         <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate className="form-container">
-            {/* Первый ряд полей */}
+            <Typography variant="body2" style={{ textAlign: 'center', margin: '20px', fontSize: '25px', fontWeight: 'bold' }}>Підібрати тур:</Typography>
             <Box className="flex-row first-row-fields">
                 <Box className="flex-item">
                     <TextField
                         fullWidth
                         select
-                        label="Страна"
-                        {...register('country', { required: 'Это поле обязательно' })}
+                        label="Країна"
+                        {...register('country', { required: "Це поле обов'язкове для заповнення" })}
                         error={Boolean(errors.country)}
                         helperText={errors.country?.message}
                         className="select-field"
@@ -58,7 +58,7 @@ export const TourRequestForm = () => {
                     <TextField
                         fullWidth
                         select
-                        label="Взрослых"
+                        label="Скільки туристів"
                         {...register('adults')}
                         className="select-field"
                     >
@@ -72,7 +72,7 @@ export const TourRequestForm = () => {
                     <TextField
                         fullWidth
                         select
-                        label="Детей"
+                        label="Скільки дітей"
                         {...register('children')}
                         className="select-field"
                     >
@@ -90,7 +90,7 @@ export const TourRequestForm = () => {
                         startDate={startDate}
                         endDate={endDate}
                         minDate={addDays(new Date(), 1)}
-                        placeholderText="Дата начала тура"
+                        placeholderText="Дата початку туру"
                         className="date-picker"
                     />
                 </Box>
@@ -103,7 +103,7 @@ export const TourRequestForm = () => {
                         startDate={startDate}
                         endDate={endDate}
                         minDate={startDate}
-                        placeholderText="Дата конца тура"
+                        placeholderText="Дата закінченя туру"
                         className="date-picker"
                     />
                 </Box>
@@ -115,9 +115,9 @@ export const TourRequestForm = () => {
                     <TextField
                         fullWidth
                         id="phoneNumber"
-                        label="Номер телефона"
+                        label="Номер телефону"
                         {...register('phoneNumber', {
-                            required: 'Это поле обязательно',
+                            required: "Це поле обов'язкове для заповнення",
                             pattern: {
                                 value: /^\+?(?!0+$)\d{10,15}$/,
                                 message: 'Неверный формат номера'
@@ -133,8 +133,8 @@ export const TourRequestForm = () => {
                     <TextField
                         fullWidth
                         id="name"
-                        label="Имя"
-                        {...register('name', { required: 'Это поле обязательно' })}
+                        label="Ім'я"
+                        {...register('name', { required: "Це поле обов'язкове для заповнення" })}
                         error={Boolean(errors.name)}
                         helperText={errors.name?.message}
                         className="text-field"
@@ -145,7 +145,7 @@ export const TourRequestForm = () => {
                     <TextField
                         fullWidth
                         id="additionalRequests"
-                        label="Дополнительные пожелания"
+                        label="Додаткові побажання, якщо є"
                         multiline
                         rows={1}
                         inputProps={{ maxLength: 300 }}
@@ -161,8 +161,10 @@ export const TourRequestForm = () => {
                         fullWidth
                         variant="contained"
                         className="submit-button"
+                        style={{ backgroundColor: '#9DF1DF', color: '#000',
+                            textShadow: '1px 1px 2px white', }}
                     >
-                        Отправить заявку
+                        Відправити
                     </Button>
                 </Box>
             </Box>

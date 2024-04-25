@@ -1,0 +1,10 @@
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Создает три колонки одинаковой ширины */
+    gap: 20px; /* Отступы между карточками */
+    padding: 20px; /* Отступы внутри контейнера */
+}
+
+.article-card {
+    display: block; /* Убедитесь, что ссылка ведет себя как блочный элемент */
+}

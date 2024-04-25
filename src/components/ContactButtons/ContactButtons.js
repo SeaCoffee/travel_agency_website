@@ -5,38 +5,47 @@ import ViberIcon from '../../icons/viber.png'; // Импортируем ико�
 import styles from './ContactButtons.module.css'
 
 export const ContactButtons = () => {
-    const viberNumber = '1234567890'; // Замените на ваш номер телефона для Viber
-    const telegramUsername = 'your_telegram_username'; // Замените на ваше имя пользователя в Telegram
-    const additionalNumber1 = '9876543210'; // Дополнительный номер телефона 1
-    const additionalNumber2 = '1122334455'; // Дополнительный номер телефона 2
+
+    const managers = [
+        {
+            phoneNumber: '096 064 13 04', // Номер телефона менеджера 1
+            viberNumber: '0960641304', // Номер Viber менеджера 1
+            telegramUsername: 'manager1_telegram', // Telegram username менеджера 1
+        },
+        {
+            phoneNumber: '098 777 18 69', // Номер телефона менеджера 2
+            viberNumber: '0987771869', // Номер Viber менеджера 2
+            telegramUsername: 'https://t.me/kvytkyvlito', // Telegram username менеджера 2
+        }
+    ];
 
     return (
         <div className={styles.contactContainer}>
-            <div className={styles.iconsContainer}>
-                <span>Відкрити діалог в </span>
-                <a href={`viber://chat?number=${viberNumber}`} target="_blank" rel="noopener noreferrer"
-                   className={styles.contactLink}>
-                    <span style={{ color: '#0000ff' }}>Viber</span> <img src={ViberIcon} alt="Viber" className={styles.contactImage}/>
-                </a>
-                <a href={`https://t.me/${telegramUsername}`} target="_blank" rel="noopener noreferrer"
-                   className={styles.contactLink}>
-                    <span style={{ color: '#0000ff' }}>Telegram</span> <img src={TelegramIcon} alt="Telegram" className={styles.contactImage}/>
-                </a>
-            </div>
-            <div>
-                <div className={styles.numbersTitle}>Наші контакти:</div>
-                <ul>
-                    <li className={styles.additionalNumbers}>{additionalNumber1}</li>
-                    <li className={styles.additionalNumbers}>{additionalNumber2}</li>
-                </ul>
-            </div>
+            <div className={styles.numbersTitle}>Наші контакти:</div>
+            {managers.map((manager, index) => (
+                <div key={index} className={styles.numberWithMessengers}>
+                    <span className={styles.additionalNumbers}>{manager.phoneNumber}</span>
+                    <div className={styles.messengerLinks}>
+                        <span>Відкрити діалог в </span>
+                        <a href={`viber://chat?number=${manager.viberNumber}`} target="_blank" rel="noopener noreferrer"
+                           className={styles.contactLink}>
+                            <span style={{ color: '#0000ff' }}>Viber</span>
+                            <img src={ViberIcon} alt="Viber" className={styles.contactImage}/>
+                        </a>
+                        <a href={manager.telegramUsername.startsWith('http') ? manager.telegramUsername : `https://t.me/${manager.telegramUsername}`} target="_blank" rel="noopener noreferrer"
+                           className={styles.contactLink}>
+                            <span style={{ color: '#0000ff' }}>Telegram</span>
+                            <img src={TelegramIcon} alt="Telegram" className={styles.contactImage}/>
+                        </a>
+                    </div>
+                </div>
+            ))}
+
             <div className={styles.emergencyNotice}>
                 На період воєнного стану працюємо в режимі онлайн
             </div>
         </div>
     );
-}
-
-
+};
 
 export default ContactButtons;

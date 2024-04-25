@@ -1,19 +1,15 @@
 import React from "react";
-import { Card, CardMedia, CardContent, Typography, Grid } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
+
 import { Link } from 'react-router-dom';
 
 
-const article = {
-    id: 1,
-    title: "Заголовок статьи",
-    content: "Полное содержание статьи",
-    imageUrl: "https://via.placeholder.com/150"
-};
+import {useful, resorts} from "../../materials/materials";
 
-
-export const Article = ({ article }) => {
+export const ArticleCard = ({ article, basePath }) => {
     return (
-        <Link to={`/articles/${article.id}`} style={{ textDecoration: 'none' }}>
+        <Link to={`${basePath}/${article.id}`} style={{ textDecoration: 'none' }}>
             <Card>
                 <CardMedia
                     component="img"

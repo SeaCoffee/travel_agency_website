@@ -1,14 +1,7 @@
-import React from "react";
-import {Articles} from "../Articles/Articles";
-
-
-
+import {useful, resorts} from "../../materials/materials";
+import {ArticlesList} from "../Articles/ArticlesList";
 
 export const ArticlesPage = () => {
-    return (
-        <div>
-            <Articles />
-        </div>
-    );
+    const allArticles = [...useful, ...resorts]; 
+    return <ArticlesList articles={allArticles} basePath="/articles" />;
 };
-

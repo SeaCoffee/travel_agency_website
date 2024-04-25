@@ -1,30 +1,30 @@
-import React, { useEffect } from 'react';
-import {useScript} from "../../Context/ScriptContext";
+import React, { useEffect, useRef, useState } from 'react';
+import { Grid, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import {useScript} from "../../hooks/ScriptContext";
 
 import './tours-ua-styles.css';
 
-const GeneralSearchPage = () => {
+
+const GeneralSearchPage= ({ moduleId, moduleScriptId, moduleScriptSrc }) => {
     const { isScriptLoaded, setScriptLoaded } = useScript();
 
     useEffect(() => {
-        const scriptId = 'tours-ua-script';
-        const moduleContainerId = 'toursua-module-11026';
         let observer;
 
-        const existingScript = document.getElementById(scriptId);
+        const existingScript = document.getElementById(moduleScriptId);
         if (!existingScript) {
             const script = document.createElement('script');
-            script.id = scriptId;
-            script.src = 'https://mod.tours.ua/gen/module?id=c2b610ab257e1bc0b4e1a9c13092fa6a';
+            script.id = moduleScriptId;
+            script.src = moduleScriptSrc;
             script.async = true;
             script.onload = () => {
                 setScriptLoaded(true);
 
                 // Наблюдение за изменениями после выбора страны
-                const countrySelector = document.querySelector(`#${moduleContainerId} .tsua-form input[name="country_id"]`);
+                const countrySelector = document.querySelector(`#${moduleId} .tsua-form input[name="country_id"]`);
                 if (countrySelector) {
                     countrySelector.addEventListener('change', () => {
-                        const moduleContainer = document.getElementById(moduleContainerId);
+                        const moduleContainer = document.getElementById(moduleId);
                         if (moduleContainer && !observer) {
                             observer = new MutationObserver((mutations) => {
                                 mutations.forEach((mutation) => {
@@ -59,24 +59,10 @@ const GeneralSearchPage = () => {
         };
     }, [setScriptLoaded]);
 
-    return (
-        <div>
-            <div id="toursua-module-11026">Tours.ua module initialization...</div>
-            {/* Другой контент страницы */}
-        </div>
-    );
+    return <div id={moduleId}>Tours.ua module initialization...</div>;
 };
 
-
-
-
-
-export default GeneralSearchPage;
-
-
-
-
-
+export default GeneralSearchPage
 
 
 

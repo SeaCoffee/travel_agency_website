@@ -1,4 +1,59 @@
-.banner-img {
-    width: 100%; /* Ширина баннера будет растягиваться на всю ширину контейнера */
-    height: 300px; /* Высота баннера */
+.Slider .slick-track {
+    display: flex;
+    align-items: center;
+    margin: 0 auto; /* Выравниваем по центру, убираем любые внешние отступы */
+    padding: 0; /* Убедимся, что внутренние отступы не добавляют ширину */
+    box-sizing: border-box; /* Размеры должны включать padding и border */
 }
+
+.Slider .slick-list {
+    overflow: hidden; /* Это должно скрыть, но не убрать горизонтальный скролл, если он вызван .slick-track */
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Проверьте все слайды, чтобы убедиться, что они вписываются в .slick-list */
+.Slider .slick-slide {
+    box-sizing: border-box;
+    margin: 0 15px;
+    /* Ваш код для вычисления ширины кажется корректным, но проверьте его на всякий случай */
+}
+
+.Paper {
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .Slider .slick-slide {
+        margin: 0 10px;
+    }
+
+    .Slider .slick-list {
+        margin: 0 -10px;
+    }
+}
+
+.Slider .slick-center {
+    transform: scale(1.08);
+}
+
+
+html, body {
+    max-width: 100%;
+}
+
+.Slider {
+    padding: 0;
+    margin: 0 auto;
+}
+
