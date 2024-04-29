@@ -25,10 +25,10 @@ import banner19 from '../banners/banner19.jpg';
 import banner20 from '../banners/banner20.jpg';
 import banner21 from '../banners/banner21.jpg';
 
-import {InfoBoxes} from "../InfoBoxes/InfoBoxes1";
 import OutlinedCardComponent from "../InfoCards/infoCards";
 import {CountrieslSearchPage} from "./CountrieslSearchPage";
-import BusToursSearchPage from "../BusTourSearchPage/BusTourSearchPage";
+import AdriaticToursSearchPage from "../BusTourSearchPage/AdriaticTourSearchPage";
+
 
 
 
@@ -43,8 +43,9 @@ export const HomePage = () => {
             <TourRequestForm/>
             <CarouselComponent banners={banners1} />
             <CountrieslSearchPage />
-            <BusToursSearchPage />
             <CarouselComponent banners={banners2} />
+            <AdriaticToursSearchPage />
+
         </div>
     );
 };

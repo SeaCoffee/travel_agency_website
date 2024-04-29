@@ -3,16 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {ScriptProvider} from "./hooks/ScriptContext";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
-        <ScriptProvider>
-            <App />
-        </ScriptProvider>
-    </React.StrictMode>
+        <App />
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

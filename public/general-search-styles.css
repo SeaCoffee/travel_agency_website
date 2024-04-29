@@ -1,0 +1,146 @@
+/* Стилизация верхнего блока-меню с опциями (страны) */
+.tsua-tabs.tsua-countries {
+    background-color: #E3F6FF !important; /* Цвет фона */
+    border-bottom: 1px solid #ccc; /* Граница снизу */
+    padding: 10px; /* Внутренний отступ */
+}
+
+/* Стилизация блока с контентом */
+.tsua-content {
+    width: 99%;
+    padding: 20px; /* Внутренний отступ */
+    background-color: #E3F6FF; /* Цвет фона */
+    border-radius: 5px; /* Скругление углов */
+    border-top: 1px solid #ccc;
+
+}
+
+/* Стилизация карточки тура */
+.tsua-price-item {
+    margin: 15px; /* Внешний отступ */
+    border: 10px solid #ddd; /* Граница */
+    padding: 15px; /* Внутренний отступ */
+    transition: box-shadow 0.3s; /* Плавный переход тени */
+    border-radius: 15px; /* Скругление углов */
+}
+
+.tsua-price-item:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Тень при наведении */
+}
+
+/* Стилизация нижнего блока-меню с опциями (данные туриста) */
+.tsua-tabs.tsua-footer {
+    background-color: #9DF1DF !important; /* Цвет фона */
+    padding: 10px; /* Внутренний отступ */
+    border-top: 1px solid #ccc; /* Граница сверху */
+}
+
+/* Стилизация кнопок */
+.tsua-tabs .tsua-button {
+    background-color: #9DF1DF; /* Основной цвет фона */
+    color: black; /* Цвет текста */
+    border: none; /* Без границы */
+    padding: 10px 20px; /* Внутренний отступ */
+    margin: 5px; /* Внешний отступ */
+    border-radius: 5px; /* Скругление углов */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background-color 0.3s, transform 0.2s; /* Плавный переход для фона и трансформации */
+}
+
+.tsua-tabs .tsua-button:hover .tsua-countries .tsua-footer {
+    background-color: #9DF1DF; /* Цвет фона при наведении */
+    transform: scale(1.05); /* Немного увеличивается при наведении */
+}
+
+.tsua-button:active .tsua-tabs .tsua-countries .tsua-footer{
+    background-color: #89C9B8; /* Темнее при нажатии */
+    transform: scale(0.95); /* Сжимается при нажатии */
+}
+
+/* Стилизация скрытых оберток */
+.tsua-hotel-wrapper,
+.tsua-wrapper {
+    display: none; /* Элементы скрыты */
+}
+
+/* Стилизация контейнера */
+.mCSB_container {
+    position: relative;
+    background-color: #E3F6FF; /* Относительное позиционирование */
+    /* Скрытие переполнения */
+}
+
+/* Стилизация элементов, которые могут быть использованы как кнопки */
+.tsua-tab-item {
+    background-color: #9DF1DF; /* Основной цвет фона */
+    color: black; /* Цвет текста */
+    padding: 10px 15px; /* Внутренний отступ */
+    margin: 5px; /* Внешний отступ */
+    border-radius: 4px; /* Скругление углов */
+    border: none; /* Убираем границу */
+    cursor: pointer; /* Курсор в виде указателя */
+    text-align: center; /* Выравнивание текста по центру */
+    display: inline-block; /* Элементы располагаются в строку */
+    transition: background-color 0.3s, transform 0.2s; /* Плавный переход для фона и трансформации */
+}
+
+.tsua-tab-item:hover {
+    background-color: #9DF1DF; /* Цвет фона при наведении */
+    transform: scale(1.05); /* Немного увеличивается при наведении */
+}
+
+.tsua-tab-item:active {
+    background-color: #89C9B8; /* Темнее при нажатии */
+    transform: scale(0.95); /* Сжимается при нажатии */
+}
+/* Стилизация кнопок, предполагая что они имеют класс .tsua-tab-item и находятся внутри .tsua-tabs */
+.tsua-tabs .tsua-tab-item {
+    background-color: #fffaf6; /* Основной цвет фона */
+    color: black; /* Цвет текста */
+    /* ... */
+}
+
+/* Увеличение специфичности селектора для кнопок, возможно они имеют класс .tsua-button */
+.tsua-tabs .tsua-tab-item.tsua-button {
+    background-color: #fffaf6; /* Основной цвет фона */
+    /* ... */
+}
+
+/* Переопределение стилей при наведении, снова увеличив специфичность */
+.tsua-tabs .tsua-tab-item.tsua-button:hover {
+    background-color: #9DF1DF; /* Цвет фона при наведении */
+    /* ... */
+}
+/* Стилизация трека полосы прокрутки */
+.mCSB_scrollTools .mCSB_draggerContainer {
+    background-color:  #E3F6FF; /* Цвет фона трека */
+    border-radius: 6px; /* Скругление углов трека */
+    width: 10px; /* Ширина трека */
+}
+
+/* Стилизация ползунка полосы прокрутки */
+.mCSB_scrollTools .mCSB_dragger {
+    background-color:  #E3F6FF; /* Цвет фона ползунка */
+    border-radius: 6px; /* Скругление углов ползунка */
+    width: 10px; /* Ширина ползунка */
+    opacity: 0.7; /* Прозрачность ползунка */
+    cursor: pointer; /* Тип курсора */
+}
+
+/* Стилизация для ползунка при наведении */
+.mCSB_scrollTools .mCSB_dragger:hover {
+    background-color: #5EB961; /* Светлее при наведении */
+    opacity: 1; /* Полная непрозрачность при наведении */
+}
+
+/* Стилизация полосы на ползунке (если она есть) */
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color:  #E3F6FF; /* Цвет фона полосы на ползунке */
+    margin: 0 auto; /* Центровка полосы */
+}
+
+/* Стилизация для трека при активном ползунке */
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger:focus .mCSB_dragger_bar {
+    background-color: #333333; /* Темный цвет при активации */
+}

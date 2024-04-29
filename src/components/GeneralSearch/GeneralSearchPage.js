@@ -1,68 +1,165 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Grid, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
-import {useScript} from "../../hooks/ScriptContext";
-
-import './tours-ua-styles.css';
+import React, { useEffect, useState,  } from 'react';
+import {Typography} from "@mui/material";
 
 
-const GeneralSearchPage= ({ moduleId, moduleScriptId, moduleScriptSrc }) => {
-    const { isScriptLoaded, setScriptLoaded } = useScript();
+
+
+const GeneralSearchPage = () => {
+    const [iframeKey, setIframeKey] = useState(1);
+
+    // Функция для внедрения стилей в iframe
+    const injectStyles = () => {
+        const iframe = document.getElementById('toursua-iframe'); // Установите соответствующий ID вашего iframe
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+
+        const styleElement = iframeDocument.createElement('style');
+        styleElement.type = 'text/css';
+        styleElement.appendChild(document.createTextNode(`
+            /* Общие стили для вкладок и содержимого */
+.tsua-tabs {
+    background-color:  #9DF1DF;/* Цвет фона для всех вкладок */
+    padding: 10px; /* Внутренний отступ для всех вкладок */
+    border-bottom: 1px solid #ccc; /* Граница снизу для всех вкладок */
+}
+
+/* Стили для контента внутри вкладок */
+.tsua-content {
+    width: 99%;
+    padding: 20px;
+    background-color: #E3F6FF; /* Цвет фона для контента */
+    border-radius: 5px; /* Скругление углов */
+    border-top: 1px solid #ccc;
+}
+
+/* Стилизация карточек с ценами */
+.tsua-price-item {
+    margin: 15px;
+    border: 10px solid #E3F6FF; /* Цвет границы карточек */
+    padding: 15px;
+    transition: box-shadow 0.3s; /* Плавность перехода тени */
+    border-radius: 15px; /* Скругление углов */
+}
+
+.tsua-price-item:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6); /* Тень при наведении */
+}
+
+/* Стилизация вкладок в нижнем блоке */
+.tsua-tabs.tsua-footer {
+    border-top: 1px solid #ccc; /* Граница сверху */
+}
+
+/* Стили для элементов, которые могут быть использованы как кнопки */
+.tsua-tab-item {
+    background-color: #9DF1DF;
+    color: black; /* Цвет текста */
+    padding: 10px 15px; /* Внутренний отступ */
+    margin: 5px; /* Внешний отступ */
+    border-radius: 4px; /* Скругление углов */
+    border: none; /* Без границы */
+    cursor: pointer; /* Курсор в виде указателя */
+    text-align: center; /* Выравнивание текста по центру */
+    display: inline-block; /* Элементы в одну строку */
+    transition: background-color 0.3s, transform 0.2s; /* Плавный переход */
+}
+
+/* Стилизация элементов при наведении и активации */
+.tsua-tab-item:hover, .tsua-tab-item:active {
+    background-color: #89C9B8; /* Изменение фона при наведении и нажатии */
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.tsua-tab-item:active {
+    transform: scale(0.95); /* Уменьшение при нажатии */
+}
+
+/* Скрытые обертки */
+.tsua-hotel-wrapper,
+.tsua-wrapper {
+    display: none; /* Скрываем элементы */
+}
+
+/* Стилизация скроллбара */
+.mCSB_container {
+    position: relative; /* Относительное позиционирование */
+    background-color: #E3F6FF; /* Цвет фона контейнера */
+}
+
+/* Стилизация трека и ползунка полосы прокрутки */
+.mCSB_scrollTools .mCSB_draggerContainer,
+.mCSB_scrollTools .mCSB_dragger {
+    background-color: #E3F6FF; /* Цвет фона трека и ползунка */
+    border-radius: 6px; /* Скругление углов */
+    width: 10px; /* Ширина */
+    opacity: 0.7; /* Прозрачность */
+    cursor: pointer; /* Тип курсора */
+}
+
+/* Стилизация для ползунка при наведении и активации */
+.mCSB_scrollTools .mCSB_dragger:hover,
+.mCSB_scrollTools .mCSB_dragger:active {
+    background-color: #5EB961; /* Изменение фона при наведении и нажатии */
+    opacity: 1; /* Полная непрозрачность */
+}
+
+/* Стилизация полосы на ползунке */
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #E3F6FF; /* Цвет фона полосы */
+    margin: 0 auto; /* Центровка полосы */
+}
+
+/* Стилизация для активного ползунка */
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger:focus .mCSB_dragger_bar {
+    background-color: #333333; /* Цвет фона при активации */
+}
+
+        `));
+        iframeDocument.head.appendChild(styleElement);
+    };
+
 
     useEffect(() => {
-        let observer;
-
-        const existingScript = document.getElementById(moduleScriptId);
-        if (!existingScript) {
-            const script = document.createElement('script');
-            script.id = moduleScriptId;
-            script.src = moduleScriptSrc;
-            script.async = true;
-            script.onload = () => {
-                setScriptLoaded(true);
-
-                // Наблюдение за изменениями после выбора страны
-                const countrySelector = document.querySelector(`#${moduleId} .tsua-form input[name="country_id"]`);
-                if (countrySelector) {
-                    countrySelector.addEventListener('change', () => {
-                        const moduleContainer = document.getElementById(moduleId);
-                        if (moduleContainer && !observer) {
-                            observer = new MutationObserver((mutations) => {
-                                mutations.forEach((mutation) => {
-                                    if (mutation.addedNodes.length) {
-                                        mutation.addedNodes.forEach((node) => {
-                                            if (node.matches && node.matches('.tsua-filter-variant')) {
-                                                setTimeout(() => {
-                                                    node.click();
-                                                }, 100);
-                                            }
-                                        });
-                                    }
-                                });
-                            });
-
-                            observer.observe(moduleContainer, { childList: true, subtree: true });
-                        }
-                    });
-                }
-            };
-            document.body.appendChild(script);
-        }
-
-        return () => {
-            if (observer) {
-                observer.disconnect();
-            }
-
-            if (existingScript) {
-                document.body.removeChild(existingScript);
-            }
-        };
-    }, [setScriptLoaded]);
-
-    return <div id={moduleId}>Tours.ua module initialization...</div>;
-};
-
-export default GeneralSearchPage
+        // При каждом возвращении на страницу пересоздаем iframe для перезагрузки скрипта
+        setIframeKey(prevKey => prevKey + 1);
+    }, []);
 
 
+    const iframeSrcDoc = `
+    <html>
+    <head>
+        <style>
+            body { margin: 0; width: 100%; } /* Пример стиля для тела iframe */
+        </style>
+    </head>
+    <body>
+        <div id="toursua-module-11033">Инициализация модуля Tours.ua...</div>
+        <script src="https://mod.tours.ua/gen/module?id=5f554e6a3a5e65f8901aa9a8649c3d0c"></script>
+    </body>
+    </html>
+`;
 
+
+    return (
+        <div>
+            <Typography gutterBottom variant="h5" component="div"
+                        style={{textAlign: 'center', margin: '20px 0', fontSize: '25px', fontWeight: 'bold', p: 5}}>
+                Пошук гарячих турів по країнах:
+            </Typography>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <iframe
+                    id="toursua-iframe"
+                    sandbox="allow-scripts allow-same-origin"
+                    key={iframeKey}
+                    srcDoc={iframeSrcDoc}
+                    onLoad={injectStyles}
+                    style={{width: '90%', height: 'auto', border: 'none', minHeight: '800px'}}
+                    title="Tours.ua Module"
+                />
+            </div>
+        </div>
+    );
+}
+
+
+    export default GeneralSearchPage;

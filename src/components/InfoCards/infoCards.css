@@ -1,0 +1,19 @@
+.card-container {
+    width: 97%;
+    margin: 0 auto;
+}
+
+.outlined-card {
+    background-color: #fffaf6;
+    min-height: 250px;
+}
+
+.text-secondary {
+    color: #6b6b6b;
+}
+
+
+/* Elevation shadow to mimic Material-UI elevation */
+.cardShadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

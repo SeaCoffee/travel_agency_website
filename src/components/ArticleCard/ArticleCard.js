@@ -1,11 +1,10 @@
 import React from "react";
 import { Card, CardMedia, CardContent, Typography } from '@mui/material';
-import { useParams } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
 
 
-import {useful, resorts} from "../../materials/materials";
+
 
 export const ArticleCard = ({ article, basePath }) => {
     return (

@@ -1,46 +1,55 @@
 import React from 'react';
 
-import { Grid, Card, CardContent, Typography, CardActions, Button } from '@mui/material';
+import { Grid, Card, CardContent, Typography, CardActions, Button, useTheme, useMediaQuery } from '@mui/material';
+
+import './infoCards.css'
 
 const cardData = [
     {
-        title: "Word of the Day",
-        word: "benevolent",
-        description: "well meaning and kindly.",
-        example: '"a benevolent smile"'
+        title: "Вас вітає",
+        word: "Туристична агенція Літо 365",
+        description: "",
+        example: 'Працюємо для Вас з 2017'
     },
     {
-        title: "Phrase of the Day",
-        word: "serendipity",
-        description: "The occurrence of events by chance in a happy or beneficial way.",
-        example: '"a fortunate stroke of serendipity"'
+        title: "Співпрацюємо",
+        word: "З усіма туроператорами України",
+        description: "На період воєнного часу також з",
+        example: 'туроператорами Польщі, Молдавії, Румунії'
     },
     {
-        title: "Idiom of the Day",
-        word: "Break a leg",
-        description: "Good luck (used in the context of performing arts).",
-        example: '"break a leg in your performance tonight!"'
+        title: "Авіа/автобусні квитки",
+        word: "Пакетні тури з авіа",
+        description: "Автобусні тури",
+        description2: "Круїзи",
+        example: 'Страхуванняі',
+        example2: 'Готелі'
     },
     {
-        title: "Proverb of the Day",
-        word: "A stitch in time",
-        description: "A timely effort will prevent more work later.",
-        example: '"a stitch in time saves nine"'
+        title: "Вартість всіх турів — з перших рук.",
+        word: "Тут немає абсолютно ніякої націнки, жодних переплат.",
+        description: "Ми працюємо за цінами туроператорів",
     },
-    {
-        title: "Quote of the Day",
-        word: "Carpe diem",
-        description: "Seize the day.",
-        example: '"Carpe diem, seize the day boys, make your lives extraordinary."'
-    }
 ];
 
 function OutlinedCardsRow() {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{justifyContent: 'space-around', paddingLeft: '16px', paddingRight: '16px'}}>
             {cardData.map((card, index) => (
-                <Grid item xs={12} sm={6} md={2.4} key={index}>
-                    <Card variant="outlined" elevation={16} sx={{ bgcolor: '#fffaf6', minHeight: 300 }}> {/* Здесь minHeight для одинакового размера */}
+                <Grid item xs={12} sm={6} md={3} key={index}
+                      sx={{
+                          maxWidth: isMobile ? '100%' : '300px',
+                          width: '100%',
+                      }}>
+                    <Card variant="outlined" elevation={4} sx={{
+                        bgcolor: '#fffaf6',
+                        minHeight: 200,
+                        boxShadow: '0px 4px 8px rgba(0,0,0,0.2)',
+                        width: '100%'
+                    }}>
                         <CardContent>
                             <Typography color="text.secondary" gutterBottom>
                                 {card.title}
@@ -50,20 +59,29 @@ function OutlinedCardsRow() {
                             </Typography>
                             <Typography variant="body2">
                                 {card.description}
-                                <br />
+                                <br/>
                                 {card.example}
                             </Typography>
+                            {card.description2 && card.example2 && (
+                                <Typography variant="body2">
+                                    {card.description2}
+                                    <br/>
+                                    {card.example2}
+                                </Typography>
+                            )}
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">LEARN MORE</Button>
-                        </CardActions>
                     </Card>
                 </Grid>
             ))}
         </Grid>
     );
+
 }
 
-export default OutlinedCardsRow;
+
+    export default OutlinedCardsRow;
+
+
+
 
 

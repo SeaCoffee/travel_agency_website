@@ -29,12 +29,13 @@ export const ContactButtons = () => {
                         <span>Відкрити діалог в </span>
                         <a href={`viber://chat?number=${manager.viberNumber}`} target="_blank" rel="noopener noreferrer"
                            className={styles.contactLink}>
-                            <span style={{ color: '#0000ff' }}>Viber</span>
+                            <span style={{color: '#0000ff'}}>Viber</span>
                             <img src={ViberIcon} alt="Viber" className={styles.contactImage}/>
                         </a>
-                        <a href={manager.telegramUsername.startsWith('http') ? manager.telegramUsername : `https://t.me/${manager.telegramUsername}`} target="_blank" rel="noopener noreferrer"
+                        <a href={manager.telegramUsername.startsWith('http') ? manager.telegramUsername : `https://t.me/${manager.telegramUsername}`}
+                           target="_blank" rel="noopener noreferrer"
                            className={styles.contactLink}>
-                            <span style={{ color: '#0000ff' }}>Telegram</span>
+                            <span style={{color: '#0000ff'}}>Telegram</span>
                             <img src={TelegramIcon} alt="Telegram" className={styles.contactImage}/>
                         </a>
                     </div>
@@ -46,6 +47,5 @@ export const ContactButtons = () => {
             </div>
         </div>
     );
-};
-
+}
 export default ContactButtons;

@@ -1,0 +1,64 @@
+.modalStyle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    max-height: 80vh;
+    display: block;
+    outline: none;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.cardBox {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.cardStyle {
+    width: 85%;
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    overflow: visible;
+}
+
+.cardMedia {
+    width: 115%;
+    max-height: 345px;
+    object-fit: contain;
+    border-radius: inherit;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cardContent {
+    flex: 1 0 auto;
+}
+
+.typographyTitle {
+    white-space: pre-line;
+}
+
+.closeButton {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+.loadingBox {
+    width: 115%;
+    height: 345px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalImg {
+    width: 100%;
+    max-height: 80vh;
+    box-shadow: none;
+}

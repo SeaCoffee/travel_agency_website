@@ -3,9 +3,11 @@
     padding: 10px 5%; /* Измененный отступ для занятия 90% страницы */
     border-radius: 5px;
     margin: 45px auto 40px;
-    width: 97%; /* Установленная ширина в 90% */
+    width: 94%; /* Установленная ширина в 90% */
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
+
+
 
 .iconsContainer {
     margin-top: 16px; /* Добавлен отступ сверху к иконкам с текстом */
@@ -115,4 +117,46 @@ ul {
     margin-top: 20px; /* Отступ сверху для блока с уведомлением */
 }
 
+/* Стили для мобильных устройств */
+@media (max-width: 600px) {
+    .contactContainer {
+        padding: 10px 3%;
+        margin: 20px auto;
+        width: 90%;
+    }
+
+    .numbersTitle {
+        font-size: 16px; /* Меньший размер шрифта для мобильных устройств */
+    }
+
+    .numberWithMessengers {
+        flex-direction: column; /* Элементы теперь располагаются вертикально */
+        align-items: flex-start;
+    }
+
+    .additionalNumbers {
+        width: 100%; /* Номер занимает всю ширину */
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .messengerLinks {
+        flex-direction: row; /* Кнопки мессенджеров выстроены в строку */
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .contactLink {
+        font-size: 14px; /* Уменьшен размер текста ссылок */
+    }
+
+    .contactImage {
+        width: 20px;
+        height: 20px;
+    }
+
+    .emergencyNotice {
+        font-size: 14px;
+    }
+}
 
