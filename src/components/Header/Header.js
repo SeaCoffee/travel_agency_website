@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import { Box, CssBaseline, AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Drawer, useTheme, useMediaQuery, List, ListItem, ListItemText } from '@mui/material';
+import { Box, CssBaseline, AppBar, Toolbar, Typography, IconButton, Drawer, useTheme, useMediaQuery, List, ListItem, ListItemText } from '@mui/material';
 import Button from '@mui/material/Button';
-import PropTypes from 'prop-types';
 
 import Divider from '@mui/material/Divider';
 
@@ -18,7 +17,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import './Header.css'
 
-const drawerWidth = 240;
 
 const navItems = [
     { title: 'На головну', path: '/' },

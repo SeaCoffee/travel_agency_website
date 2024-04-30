@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid, Card, CardContent, Typography, CardActions, Button, useTheme, useMediaQuery } from '@mui/material';
+import { Grid, Card, CardContent, Typography, useTheme, useMediaQuery } from '@mui/material';
 
 import './infoCards.css'
 

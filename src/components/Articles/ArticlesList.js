@@ -1,9 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, CardMedia, CardContent, Typography } from '@mui/material';
 
-import {useful, resorts} from "../../materials/materials";
-import styles from './articlesList.css';
+import './articlesList.css';
 
 import {ArticleCard} from "../ArticleCard/ArticleCard";
 

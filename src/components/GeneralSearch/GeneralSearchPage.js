@@ -129,7 +129,7 @@ const GeneralSearchPage = () => {
     <html>
     <head>
         <style>
-            body { margin: 0; width: 100%; } /* Пример стиля для тела iframe */
+            body { margin: 0; width: 100%; } 
         </style>
     </head>
     <body>
