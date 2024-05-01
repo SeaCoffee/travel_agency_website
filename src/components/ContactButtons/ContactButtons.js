@@ -10,7 +10,7 @@ export const ContactButtons = () => {
         {
             phoneNumber: '096 064 13 04', // Номер телефона менеджера 1
             viberNumber: '0960641304', // Номер Viber менеджера 1
-            telegramUsername: 'manager1_telegram', // Telegram username менеджера 1
+            telegramUsername: 'https://t.me/tanyalito365', // Telegram username менеджера 1
         },
         {
             phoneNumber: '098 777 18 69', // Номер телефона менеджера 2
