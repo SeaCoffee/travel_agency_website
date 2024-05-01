@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/travel-agency-website/static/css/main.61d57f8b.css",
-    "main.js": "/travel-agency-website/static/js/main.d66575b1.js",
+    "main.css": "/travel-agency-website/static/css/main.d3d8bf15.css",
+    "main.js": "/travel-agency-website/static/js/main.a8970efb.js",
     "static/js/453.c7310a31.chunk.js": "/travel-agency-website/static/js/453.c7310a31.chunk.js",
     "static/media/abroad.png": "/travel-agency-website/static/media/abroad.cb82771cdc344c817950.png",
     "static/media/excursion.png": "/travel-agency-website/static/media/excursion.d4fdff615b3062539aa3.png",
@@ -41,12 +41,12 @@
     "static/media/slick.ttf": "/travel-agency-website/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/travel-agency-website/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/travel-agency-website/index.html",
-    "main.61d57f8b.css.map": "/travel-agency-website/static/css/main.61d57f8b.css.map",
-    "main.d66575b1.js.map": "/travel-agency-website/static/js/main.d66575b1.js.map",
+    "main.d3d8bf15.css.map": "/travel-agency-website/static/css/main.d3d8bf15.css.map",
+    "main.a8970efb.js.map": "/travel-agency-website/static/js/main.a8970efb.js.map",
     "453.c7310a31.chunk.js.map": "/travel-agency-website/static/js/453.c7310a31.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.61d57f8b.css",
-    "static/js/main.d66575b1.js"
+    "static/css/main.d3d8bf15.css",
+    "static/js/main.a8970efb.js"
   ]
 }
