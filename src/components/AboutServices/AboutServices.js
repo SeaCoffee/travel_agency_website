@@ -5,7 +5,7 @@ import './aboutServices.css'
 export const AboutServicesPage = () => {
     return (
         <Box className="box">
-            <Typography variant="h4" gutterBottom className="title" sx={{ mb: 4, mt: 2}}>
+            <Typography variant="h4" gutterBottom className="title" >
                 Наші послуги:
             </Typography>
             <Grid container spacing={3}>
@@ -26,7 +26,7 @@ export const AboutServicesPage = () => {
                     <Grid item xs={12} sm={6} md={4} key={index}>
                         <Card className="card">
                             <CardContent>
-                                <Typography variant="h5" component="div" className="cardContent">
+                                <Typography variant="h5" component="div" className="cardContent" sx={{mb:1}}>
                                     {service.title}
                                 </Typography>
                                 <Typography variant="body2" className="bodyText">

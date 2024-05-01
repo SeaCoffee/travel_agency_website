@@ -4,7 +4,7 @@
 }
 
 .title {
-    margin-bottom: 2rem; /* Увеличенный адаптивный нижний отступ */
+    margin-bottom: 2.5rem; /* Увеличенный адаптивный нижний отступ */
     margin-left: 0.5rem;
     font-style: italic;
     opacity: 0.8;
@@ -12,17 +12,22 @@
 
 .card {
     background-color: #FEFBF6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Добавление тени */
 }
 
 .cardContent {
-    margin-bottom: 0.75rem; /* Адаптивный отступ */
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     font-style: italic;
     opacity: 0.8;
 }
 
 .bodyText {
-    margin-bottom: 0.75rem; /* Адаптивный отступ */
+    margin-bottom: 0.75rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
 }
+
 
 .box .MuiCard-root {
     background-color: #FEFBF6;

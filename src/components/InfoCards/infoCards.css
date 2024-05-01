@@ -1,19 +1,38 @@
+/* Общие стили контейнера для карточек */
 .card-container {
     width: 97%;
     margin: 0 auto;
 }
 
+/* Стили для карточек с обводкой и тенью */
 .outlined-card {
     background-color: #fffaf6;
     min-height: 250px;
-}
-
-.text-secondary {
-    color: #6b6b6b;
-}
-
-
-/* Elevation shadow to mimic Material-UI elevation */
-.cardShadow {
+    flex: 1 0 auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+/* Стилизация текста заголовка */
+.title {
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 1.3rem;
+    color: #6b6b6b; /* Пример цвета, используемого для заголовков */
+}
+
+/* Стилизация описательного текста */
+.description {
+    font-size: 0.9rem;
+    margin-top: 0; /* Начальное значение, можно изменить в зависимости от контекста */
+}
+.card-content {
+    line-height: 1.5; /* Увеличение междустрочного интервала */
+    font-size: 16px; /* Увеличение размера шрифта */
+}
+
+.card-title, .card-word {
+    line-height: normal; /* Оставляем междустрочный интервал по умолчанию для заголовков */
+    font-size: inherit; /* Оставляем размер шрифта по умолчанию для заголовков */
+}
+
+/* Дополнительные стилизации, если потребуются */
