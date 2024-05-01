@@ -1,11 +1,12 @@
 import React from 'react';
-import { RouterProvider } from 'react-router-dom';
+import { HashRouter as Router, RouterProvider } from 'react-router-dom';
 import { router } from './router';
-import MainLayout from "./components/layouts/MainLayout";
 
 export const App = () => {
     return (
-        <RouterProvider router={router} />
+        <Router>
+            <RouterProvider router={router} />
+        </Router>
     );
 };
 
