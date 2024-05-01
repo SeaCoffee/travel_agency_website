@@ -35,21 +35,7 @@ function OutlinedCardsRow() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-    const descriptionStyle = {
-        lineHeight: '1.5',     // Вы можете изменить это значение
-        fontSize: '16px',      // Вы можете изменить это значение
-        margin: '10px 0'       // Вы можете изменить это значение
-    };
 
-    const exampleStyle = {
-        lineHeight: '1.5',     // Вы можете изменить это значение
-        fontSize: '16px',      // Вы можете изменить это значение
-        margin: '10px 0'       // Вы можете изменить это значение
-    };
-
-    const titleStyle = {
-        color: '#666'          // Вы можете изменить это значение
-    };
 
     return (
         <Grid container spacing={2} sx={{justifyContent: 'space-around', paddingLeft: '16px', paddingRight: '16px', marginTop: '3px'}}>
