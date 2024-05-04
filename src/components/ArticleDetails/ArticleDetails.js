@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Box, Card, CardMedia, CardContent, Typography, Grid, Modal, IconButton, CircularProgress } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
+import BackButton from "../BackButton/BackButton";
+
 import './articleDetails.css'
 
 export const ArticleDetails = ({ article }) => {
@@ -38,7 +40,7 @@ export const ArticleDetails = ({ article }) => {
                                 />
                             ) : (
                                 <Box className="loadingBox">
-                                    <CircularProgress />
+                                    <CircularProgress/>
                                 </Box>
                             )}
                         </Grid>
@@ -50,11 +52,15 @@ export const ArticleDetails = ({ article }) => {
                                 <Typography variant="body1" color="text.secondary" className="typographyTitle">
                                     {article.fullText}
                                 </Typography>
+                                <BackButton/>
                             </CardContent>
                         </Grid>
                     </Grid>
                 </Card>
             </Box>
+
+            {/* Кнопка Назад */}
+
 
             <Modal
                 open={open}
@@ -72,7 +78,7 @@ export const ArticleDetails = ({ article }) => {
                             color: (theme) => theme.palette.grey[500],
                         }}
                     >
-                        <CloseIcon />
+                        <CloseIcon/>
                     </IconButton>
                     <img
                         src={article.imageUrl}
@@ -83,4 +89,4 @@ export const ArticleDetails = ({ article }) => {
             </Modal>
         </>
     );
-};
+}

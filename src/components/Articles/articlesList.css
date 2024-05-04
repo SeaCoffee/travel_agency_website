@@ -1,10 +1,27 @@
-.articles-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Создает три колонки одинаковой ширины */
-    gap: 20px; /* Отступы между карточками */
-    padding: 20px; /* Отступы внутри контейнера */
-}
 
 .article-card {
     display: block; /* Убедитесь, что ссылка ведет себя как блочный элемент */
 }
+
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки для десктопов */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Медиа-запрос для планшетов: две колонки */
+@media (max-width: 768px) {
+    .articles-container {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки для планшетов */
+    }
+}
+
+/* Медиа-запрос для мобильных телефонов: одна колонка */
+@media (max-width: 480px) {
+    .articles-container {
+        grid-template-columns: 1fr; /* Одна колонка для мобильных */
+    }
+}
+
+

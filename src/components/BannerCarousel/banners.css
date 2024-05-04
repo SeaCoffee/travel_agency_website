@@ -34,12 +34,18 @@
 }
 
 @media (max-width: 768px) {
+    .Slider {
+        padding-top: 20px; /* Добавляем верхний отступ */
+        padding-bottom: 20px; /* Добавляем нижний отступ */
+        margin: 0 auto;
+    }
+
     .Slider .slick-slide {
-        margin: 0 10px;
+        margin: 10px 10px; /* Оставляем текущие отступы слайда */
     }
 
     .Slider .slick-list {
-        margin: 0 -10px;
+        margin: 0 -10px; /* Это уберёт горизонтальные отступы, если они вызывают проблемы с шириной */
     }
 }
 
@@ -56,4 +62,15 @@ html, body {
     padding: 0;
     margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+    .react-modal-content {
+        top: 5%;
+        left: 5%;
+        right: 5%;
+        bottom: 5%;
+    }
+}
+
+
 

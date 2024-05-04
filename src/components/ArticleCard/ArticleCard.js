@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 
+
 export const ArticleCard = ({ article, basePath }) => {
     return (
         <Link to={`${basePath}/${article.id}`} style={{ textDecoration: 'none' }}>

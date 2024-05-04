@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Box, Grid, Card, CardContent } from '@mui/material';
 import './aboutServices.css'
+import BackButton from "../BackButton/BackButton";
 
 export const AboutServicesPage = () => {
     return (
@@ -26,7 +27,7 @@ export const AboutServicesPage = () => {
                     <Grid item xs={12} sm={6} md={4} key={index}>
                         <Card className="card">
                             <CardContent>
-                                <Typography variant="h5" component="div" className="cardContent" sx={{mb:1}}>
+                                <Typography variant="h5" component="div" className="cardContent" sx={{ mb: 1 }}>
                                     {service.title}
                                 </Typography>
                                 <Typography variant="body2" className="bodyText">
@@ -36,7 +37,11 @@ export const AboutServicesPage = () => {
                         </Card>
                     </Grid>
                 ))}
-                    </Grid>
-                    </Box>
-                    );
-                };
+            </Grid>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-start', marginTop: 2 }}> {/* Отступ сверху и выравнивание по левому краю */}
+                <BackButton /> {/* Кнопка Назад */}
+            </Box>
+        </Box>
+    );
+};
+

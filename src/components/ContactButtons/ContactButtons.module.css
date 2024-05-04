@@ -117,11 +117,10 @@ ul {
     margin-top: 20px; /* Отступ сверху для блока с уведомлением */
 }
 
-/* Стили для мобильных устройств */
 @media (max-width: 600px) {
     .contactContainer {
         padding: 10px 3%;
-        margin: 20px auto;
+        margin: 10px auto;
         width: 90%;
     }
 
@@ -130,33 +129,49 @@ ul {
     }
 
     .numberWithMessengers {
-        flex-direction: column; /* Элементы теперь располагаются вертикально */
-        align-items: flex-start;
+        display: flex;
+        flex-direction: column; /* Поддерживаем выравнивание элементов по центру */
+        align-items: center; /* Выравнивание по центру */
+        margin-bottom: 15px; /* Отступ между записями */
     }
 
     .additionalNumbers {
         width: 100%; /* Номер занимает всю ширину */
-        text-align: center;
+        text-align: center; /* Выравниваем текст по центру */
         margin-bottom: 5px;
+        margin-left: auto; /* Выравниваем по центру */
+        margin-right: auto; /* Выравниваем по центру */
     }
 
     .messengerLinks {
-        flex-direction: row; /* Кнопки мессенджеров выстроены в строку */
-        justify-content: center;
-        gap: 5px;
+        width: 100%; /* Заставляет ссылки занимать всю ширину контейнера, перенося их на новую строку */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Выравнивание по центру */
+        gap: 10px; /* Отступ между элементами внутри блока мессенджеров */
     }
 
     .contactLink {
-        font-size: 14px; /* Уменьшен размер текста ссылок */
+        display: flex;
+        align-items: center;
+        margin-top: 10px; /* Добавляет отступ сверху для ссылок, если они на новой строке */
     }
 
     .contactImage {
         width: 20px;
         height: 20px;
+        margin-left: 5px; /* Отступ слева от текста до иконки */
     }
 
     .emergencyNotice {
         font-size: 14px;
+    }
+    .phoneNumber {
+        margin-bottom: 5px; /* Отступ между номером и текстом */
+    }
+
+    .messengerText {
+        margin-bottom: 5px; /* Отступ между текстом и ссылками мессенджеров */
     }
 }
 

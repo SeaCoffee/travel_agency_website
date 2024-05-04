@@ -1,11 +1,17 @@
 import React, { useEffect, useState,  } from 'react';
-import {Typography} from "@mui/material";
+import {Typography, useTheme, useMediaQuery} from "@mui/material";
 
 
 
 
 const GeneralSearchPage = () => {
     const [iframeKey, setIframeKey] = useState(1);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+
+    console.log('Mobile:', isMobile, 'Tablet:', isTablet);
+
 
     // Функция для внедрения стилей в iframe
     const injectStyles = () => {
@@ -16,6 +22,7 @@ const GeneralSearchPage = () => {
         styleElement.type = 'text/css';
         styleElement.appendChild(document.createTextNode(`
             /* Общие стили для вкладок и содержимого */
+            
 .tsua-tabs {
     background-color:  #9DF1DF;/* Цвет фона для всех вкладок */
     padding: 10px; /* Внутренний отступ для всех вкладок */
@@ -112,7 +119,21 @@ const GeneralSearchPage = () => {
 .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 .mCSB_scrollTools .mCSB_dragger:focus .mCSB_dragger_bar {
     background-color: #333333; /* Цвет фона при активации */
+},
+
+@media (max-width: 600px) { /* или другой размер для мобильных устройств */
+    .general-search-page {
+        margin-bottom: 35px;
+    }
 }
+
+@media (min-width: 601px) {
+    .general-search-page {
+        margin-bottom: 0;
+    }
+}
+
+
 
         `));
         iframeDocument.head.appendChild(styleElement);
@@ -143,22 +164,34 @@ const GeneralSearchPage = () => {
     return (
         <div>
             <Typography gutterBottom variant="h5" component="div"
-                        style={{textAlign: 'center', margin: '20px 0', fontSize: '25px', fontWeight: 'bold', p: 5}}>
+                        style={{
+                            textAlign: 'center',
+                            margin: '20px 0',
+                            fontSize: isMobile ? '18px' : '25px', // Меньший размер шрифта для мобильных устройств
+                            fontWeight: 'bold',
+                            padding: isMobile ? 2 : 5  // Меньший отступ для мобильных устройств
+                        }}>
                 Пошук гарячих турів по країнах:
             </Typography>
-            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: isMobile ? '40px' : '0px' }}>
                 <iframe
                     id="toursua-iframe"
                     sandbox="allow-scripts allow-same-origin"
                     key={iframeKey}
                     srcDoc={iframeSrcDoc}
                     onLoad={injectStyles}
-                    style={{width: '90%', height: 'auto', border: 'none', minHeight: '800px'}}
+                    style={{
+                        width: isMobile ? '90%' : '80%', // 60% для десктопной версии, можно настроить по вашему усмотрению
+                        height: 'auto',
+                        border: 'none',
+                        minHeight: isTablet ? '1000px' : '775px'
+                    }}
                     title="Tours.ua Module"
                 />
             </div>
         </div>
     );
+
 }
 
 
