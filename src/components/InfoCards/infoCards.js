@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid, Card, CardContent, Typography, useTheme, useMediaQuery } from '@mui/material';
+import { Card, CardContent, Typography, useTheme, useMediaQuery } from '@mui/material';
 
 import './infoCards.css'
 
@@ -36,7 +36,6 @@ function OutlinedCardsRow() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-    const cardCount = cardData.length;
 
     return (
         <div style={{
