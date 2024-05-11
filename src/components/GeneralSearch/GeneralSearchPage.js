@@ -176,7 +176,7 @@ const GeneralSearchPage = () => {
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: isMobile ? '40px' : '0px' }}>
                 <iframe
                     id="toursua-iframe"
-                    sandbox="allow-scripts allow-same-origin"
+                    sandbox="allow-scripts allow-same-origin allow-forms"
                     key={iframeKey}
                     srcDoc={iframeSrcDoc}
                     onLoad={injectStyles}
