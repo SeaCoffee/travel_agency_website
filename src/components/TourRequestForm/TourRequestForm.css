@@ -53,6 +53,7 @@
     width: 100%; /* Ширина соответствует родительскому элементу .date-fields */
     margin-right: 0;
     height: 56px;
+    z-index: 10000;
 }
 
 
