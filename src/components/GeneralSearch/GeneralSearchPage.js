@@ -139,6 +139,28 @@ const GeneralSearchPage = () => {
         iframeDocument.head.appendChild(styleElement);
     };
 
+    const adjustIframeHeight = () => {
+        const iframe = document.getElementById('toursua-iframe');
+        if (iframe && iframe.contentWindow) {
+            try {
+                const body = iframe.contentWindow.document.body;
+                const height = body.scrollHeight;
+                iframe.style.height = `${height}px`;
+            } catch (error) {
+                console.error('Ошибка при корректировке высоты iframe:', error);
+            }
+        }
+    };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            adjustIframeHeight();
+        }, 1000);  // Проверка и корректировка каждую секунду
+
+        return () => clearInterval(interval);
+    }, []);
+
+
 
     useEffect(() => {
         // При каждом возвращении на страницу пересоздаем iframe для перезагрузки скрипта
