@@ -199,7 +199,7 @@
 
 .custom-datepicker-popper {
     z-index: 2000 !important;
-    position: absolute; /* Обеспечивает контекст для z-index */
+    position: fixed; /* Обеспечивает контекст для z-index */
 }
 
 
