@@ -144,7 +144,8 @@ export const TourRequestForm = () => {
                                 minDate={addDays(new Date(), 1)}
                                 placeholderText="Дата початку туру"
                                 className="date-picker"
-                                popperClassName="custom-datepicker-popper"  // Используем определенный класс для popper
+                                popperClassName="custom-datepicker-popper"
+                                portalId="portal-root"
                             />
                         )}
                     />
@@ -168,7 +169,8 @@ export const TourRequestForm = () => {
                                 minDate={startDate}
                                 placeholderText="Дата закінчення туру"
                                 className="date-picker"
-                                popperClassName="custom-datepicker-popper"  // Используем определенный класс для popper
+                                popperClassName="custom-datepicker-popper"
+                                portalId="portal-root"
                             />
                         )}
                     />
