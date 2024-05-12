@@ -36,7 +36,7 @@
     border-radius: 4px;
     background-color: #fff;
     width: 100%;
-    margin-bottom: 0; /* Отступы отключены */
+    margin-bottom: 10px; /* Отступы отключены */
 }
 
 /* Стилизация кнопки отправки */
@@ -197,12 +197,10 @@
     }
 }
 
-.custom-datepicker-popper {
-    z-index: 2000 !important;
-    position: fixed; /* Обеспечивает контекст для z-index */
+
+.custom-datepicker-popper[data-placement^="bottom"] {
+    top: -358px !important;
 }
-
-
 
 
 

@@ -59,6 +59,7 @@ export const TourRequestForm = () => {
 
     return (
         <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate className="form-container">
+            <Typography variant="body2" style={{ textAlign: 'center', margin: '20px', fontSize: '25px', fontWeight: 'bold' }}>Підібрати тур:</Typography>
             {error && <Typography color="error" style={{ textAlign: 'center' }}>Помилка при відправці. Будь ласка, спобуйте ще раз.</Typography>}
             {submitting && <Typography style={{ textAlign: 'center' }}>Відправка даних...</Typography>}
 
@@ -145,6 +146,7 @@ export const TourRequestForm = () => {
                                 placeholderText="Дата початку туру"
                                 className="date-picker"
                                 popperClassName="custom-datepicker-popper"
+                                popperPlacement="top"
                                 portalId="portal-root"
                             />
                         )}
@@ -170,6 +172,7 @@ export const TourRequestForm = () => {
                                 placeholderText="Дата закінчення туру"
                                 className="date-picker"
                                 popperClassName="custom-datepicker-popper"
+                                popperPlacement="top"
                                 portalId="portal-root"
                             />
                         )}
