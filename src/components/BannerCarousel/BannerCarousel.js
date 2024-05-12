@@ -55,7 +55,7 @@ const CarouselComponent = ({ banners }) => {
                 pagination={{
                     clickable: true
                 }}
-                style={{ width: '95%', zIndex: 1 }}
+                style={{ width: '95%', zIndex: 0 }}
             >
                 {banners.map((banner, index) => (
                     <SwiperSlide key={index}>
