@@ -6,12 +6,10 @@ import {Typography, useTheme, useMediaQuery} from "@mui/material";
 
 const GeneralSearchPage = () => {
     const [iframeKey, setIframeKey] = useState(1);
+    const [loadingError, setLoadingError] = useState(false); // Состояние для отслеживания ошибок загрузки
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-
-    console.log('Mobile:', isMobile, 'Tablet:', isTablet);
-
 
     // Функция для внедрения стилей в iframe
     const injectStyles = () => {
@@ -135,37 +133,24 @@ const GeneralSearchPage = () => {
 
 
 
+
         `));
         iframeDocument.head.appendChild(styleElement);
     };
 
-    const adjustIframeHeight = () => {
-        const iframe = document.getElementById('toursua-iframe');
-        if (iframe && iframe.contentWindow) {
-            try {
-                const body = iframe.contentWindow.document.body;
-                const height = body.scrollHeight;
-                iframe.style.height = `${height}px`;
-            } catch (error) {
-                console.error('Ошибка при корректировке высоты iframe:', error);
-            }
-        }
+
+
+
+    useEffect(() => {
+        setIframeKey(prevKey => prevKey + 1);
+        setLoadingError(false); // Сброс состояния ошибки при каждой перезагрузке
+    }, []);
+
+    const handleError = () => {
+        setLoadingError(true); // Установка состояния ошибки при возникновении ошибки загрузки
     };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            adjustIframeHeight();
-        }, 1000);  // Проверка и корректировка каждую секунду
 
-        return () => clearInterval(interval);
-    }, []);
-
-
-
-    useEffect(() => {
-        // При каждом возвращении на страницу пересоздаем iframe для перезагрузки скрипта
-        setIframeKey(prevKey => prevKey + 1);
-    }, []);
 
 
     const iframeSrcDoc = `
@@ -182,6 +167,15 @@ const GeneralSearchPage = () => {
     </html>
 `;
 
+    const iframeStyle = {
+        width: isMobile ? '95%' : '85%',
+        height: 'auto',
+        border: 'none',
+        minHeight: isTablet ? '1000px' : '775px',
+        paddingBottom: isMobile ? '40px' : '20px',
+        marginBottom: isMobile ? '5px' : '7px',
+    };
+
 
     return (
         <div>
@@ -189,9 +183,9 @@ const GeneralSearchPage = () => {
                         style={{
                             textAlign: 'center',
                             margin: '20px 0',
-                            fontSize: isMobile ? '18px' : '25px', // Меньший размер шрифта для мобильных устройств
+                            fontSize: isMobile ? '18px' : '25px',
                             fontWeight: 'bold',
-                            padding: isMobile ? 2 : 5  // Меньший отступ для мобильных устройств
+                            padding: isMobile ? 2 : 5
                         }}>
                 Пошук гарячих турів по країнах:
             </Typography>
@@ -202,19 +196,14 @@ const GeneralSearchPage = () => {
                     key={iframeKey}
                     srcDoc={iframeSrcDoc}
                     onLoad={injectStyles}
-                    style={{
-                        width: isMobile ? '90%' : '80%', // 60% для десктопной версии, можно настроить по вашему усмотрению
-                        height: 'auto',
-                        border: 'none',
-                        minHeight: isTablet ? '1000px' : '775px'
-                    }}
+                    style={iframeStyle}
                     title="Tours.ua Module"
                 />
+                {loadingError && <div>Помилка загрузки модуля. Будь ласка, спробуйте пізніше.</div>}
             </div>
         </div>
     );
-
 }
 
 
-    export default GeneralSearchPage;
+export default GeneralSearchPage;

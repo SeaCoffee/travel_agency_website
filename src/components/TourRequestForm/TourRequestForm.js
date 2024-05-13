@@ -46,7 +46,15 @@ export const TourRequestForm = () => {
 
         emailjs.send('service_0toutre', 'template_w4glizo', formattedData, 'K8tFAH5DsIj3ST2CM')
             .then((result) => {
-                reset(); // Сброс формы
+                reset({
+                    country: '',
+                    adults: '',
+                    children: '',
+                    phoneNumber: '',
+                    name: '',
+                    additionalRequests: ''
+                });
+
                 setStartDate(null);
                 setEndDate(null);
                 setSubmitting(false);
@@ -68,7 +76,8 @@ export const TourRequestForm = () => {
                     <Controller
                         name="country"
                         control={control}
-                        rules={{ required: "Це поле обов'язкове для заповнення" }}
+                        rules={{ required: "Це поле обов'язкове" }}
+                        defaultValue=""
                         render={({ field }) => (
                             <TextField
                                 {...field}
@@ -91,6 +100,8 @@ export const TourRequestForm = () => {
                     <Controller
                         name="adults"
                         control={control}
+                        rules={{ required: "Це поле обов'язкове" }}
+                        defaultValue=""
                         render={({ field }) => (
                             <TextField
                                 {...field}
@@ -111,6 +122,8 @@ export const TourRequestForm = () => {
                     <Controller
                         name="children"
                         control={control}
+                        rules={{ required: "Це поле обов'язкове" }}
+                        defaultValue=""
                         render={({ field }) => (
                             <TextField
                                 {...field}
@@ -131,6 +144,8 @@ export const TourRequestForm = () => {
                     <Controller
                         name="startDate"
                         control={control}
+                        rules={{ required: "Це поле обов'язкове" }}
+                        defaultValue=""
                         render={({ field }) => (
                             <DatePicker
                                 {...field}
@@ -146,7 +161,6 @@ export const TourRequestForm = () => {
                                 placeholderText="Дата початку туру"
                                 className="date-picker"
                                 popperClassName="custom-datepicker-popper"
-                                popperPlacement="top"
                                 portalId="portal-root"
                             />
                         )}
@@ -157,6 +171,8 @@ export const TourRequestForm = () => {
                     <Controller
                         name="endDate"
                         control={control}
+                        rules={{ required: "Це поле обов'язкове" }}
+                        defaultValue=""
                         render={({ field }) => (
                             <DatePicker
                                 {...field}
