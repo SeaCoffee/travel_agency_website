@@ -5,26 +5,19 @@ import ViberIcon from '../../icons/viber.png'; // Импортируем ико�
 import styles from './ContactButtons.module.css'
 
 export const ContactButtons = () => {
+
     const managers = [
         {
-            phoneNumber: '096 064 13 04',
-            viberNumber: '0960641304',
-            telegramUsername: 'https://t.me/tanyalito365',
+            phoneNumber: '096 064 13 04', // Номер телефона менеджера 1
+            viberNumber: '0960641304', // Номер Viber менеджера 1
+            telegramUsername: 'https://t.me/tanyalito365', // Telegram username менеджера 1
         },
         {
-            phoneNumber: '098 777 18 69',
-            viberNumber: '0987771869',
-            telegramUsername: 'https://t.me/kvytkyvlito',
+            phoneNumber: '098 777 18 69', // Номер телефона менеджера 2
+            viberNumber: '0987771869', // Номер Viber менеджера 2
+            telegramUsername: 'https://t.me/kvytkyvlito', // Telegram username менеджера 2
         }
     ];
-
-    const handleMessengerLinkClick = (url, messenger) => {
-        try {
-            window.open(url, '_blank');
-        } catch (error) {
-            alert(`Не вдалось відкрити посилання ${messenger}. Перевірте з'єднання і спробуйте ще раз.`);
-        }
-    };
 
     return (
         <div className={styles.contactContainer}>
@@ -34,12 +27,13 @@ export const ContactButtons = () => {
                     <span className={styles.additionalNumbers}>{manager.phoneNumber}</span>
                     <div className={styles.messengerLinks}>
                         <span>Відкрити діалог в </span>
-                        <a onClick={() => handleMessengerLinkClick(`viber://chat?number=${manager.viberNumber}`, 'Viber')}
+                        <a href={`viber://chat?number=${manager.viberNumber}`} target="_blank" rel="noopener noreferrer"
                            className={styles.contactLink}>
                             <span style={{color: '#0000ff'}}>Viber</span>
                             <img src={ViberIcon} alt="Viber" className={styles.contactImage}/>
                         </a>
-                        <a onClick={() => handleMessengerLinkClick(manager.telegramUsername.startsWith('http') ? manager.telegramUsername : `https://t.me/${manager.telegramUsername}`, 'Telegram')}
+                        <a href={manager.telegramUsername.startsWith('http') ? manager.telegramUsername : `https://t.me/${manager.telegramUsername}`}
+                           target="_blank" rel="noopener noreferrer"
                            className={styles.contactLink}>
                             <span style={{color: '#0000ff'}}>Telegram</span>
                             <img src={TelegramIcon} alt="Telegram" className={styles.contactImage}/>
@@ -53,5 +47,5 @@ export const ContactButtons = () => {
             </div>
         </div>
     );
-};
+}
 export default ContactButtons;
